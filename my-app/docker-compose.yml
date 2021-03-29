@@ -1,0 +1,16 @@
+version: '3.8'
+services:
+  database:
+    image: mongo
+    container_name: loopbackdb
+    environment:
+      - MONGO_INITDB_DATABASE=pruebita
+      - MONGO_INITDB_ROOT_USERNAME=leanmind
+      - MONGO_INITDB_ROOT_PASSWORD=root
+    volumes:
+      - mongodb:/data/db
+    ports:
+      - 27018:27017
+    restart: unless-stopped
+volumes:
+  mongodb:
